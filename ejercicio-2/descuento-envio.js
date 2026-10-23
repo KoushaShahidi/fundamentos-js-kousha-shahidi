@@ -24,5 +24,9 @@ const total = subTotal + envio
 console.log(`Importe: ${importe.toFixed(2)} €`)
 console.log(`Descuento: ${precioDescuento.toFixed(2)} €`)
 console.log(`Importe con desceunto: ${subTotal.toFixed(2)} €`)
-console.log(`Envio: ${envio.toFixed(2)} €`)
+if (envio === 0) {
+    console.log(`Envio: Gratis`)
+} else {
+    console.log(`Envio: ${envio.toFixed(2)} €`)
+}
 console.log(`Total: ${total.toFixed(2)} €`)
