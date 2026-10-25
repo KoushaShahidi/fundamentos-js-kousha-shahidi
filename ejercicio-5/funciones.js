@@ -70,3 +70,21 @@ function buscarProducto(productos, nombre) {
     }
     return posicion
 }
+
+
+
+//eje-1
+const producto = "Monitor";
+const precio = 189;      // precio por unidad, sin IVA
+const cantidad = 2;
+const porcentajeIva = 21;
+
+const subtotal = calcularImporteLinea(precio, cantidad)
+const Iva = calcularIVA(subtotal)
+const total = subtotal + Iva
+
+console.log(`Producto: ${producto}`)
+console.log(`${cantidad} x ${precio.toFixed(2)} €`)
+console.log(`Subtotal: ${subtotal.toFixed(2)} €`)
+console.log(`IVA (${porcentajeIva}%): ${Iva.toFixed(2)} €`)
+console.log(`TOTAL: ${total.toFixed(2)} €`)
