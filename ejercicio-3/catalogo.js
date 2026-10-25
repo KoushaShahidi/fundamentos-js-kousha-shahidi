@@ -30,5 +30,13 @@ for (let i = 0; i < precios.length; i++) {
         productoMascaro = productos[i]
     }
 }
-console.log()
 console.log(`Producto más caro: ${productoMascaro} (${precioMascaro.toFixed(2)} €)`)
+
+
+let valorTotal = 0
+
+for (let i = 0; i < productos.length; i++) {
+    valorTotal = precios[i] * stock[i] + valorTotal
+
+}
+console.log(`Valor de inventario: ${valorTotal.toFixed(2)} €`)
