@@ -42,12 +42,15 @@ function contarAgotados(stock) {
 
 function productoMasCaro(productos, precios) {
     let productoMascaro = ""
+    let precioMascaro = 0
 
     for (let i = 0; i < precios.length; i++) {
         if (precios[i] > precioMascaro) {
+            precioMascaro = precios[i]
             productoMascaro = productos[i]
         }
     }
+
     return productoMascaro
 }
 
@@ -58,7 +61,7 @@ function valorInventario(precios, stock) {
         valorTotal = precios[i] * stock[i] + valorTotal
 
     }
-    return valorTotal.toFixed(2)
+    return valorTotal
 }
 
 function buscarProducto(productos, nombre) {
@@ -108,3 +111,28 @@ if (envio === 0) {
     console.log(`Envio: ${envio.toFixed(2)} €`)
 }
 console.log(`Total: ${totalConEnvio.toFixed(2)} €`)
+console.log()
+
+// eje-3
+const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
+const precios = [45.99, 19.90, 189.00, 59.95, 34.50];
+const stock = [10, 25, 3, 0, 7];
+
+for (let i = 0; i < productos.length; i++) {
+    if (stock[i] === 0) {
+        console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (AGOTADO)`)
+    } else {
+        console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (${stock[i]} uds)`)
+    }
+}
+
+let contadorDeAgotados = contarAgotados(stock)
+console.log(`Productos agotados: ${contadorDeAgotados}`)
+
+let productomascaro = productoMasCaro(productos, precios)
+console.log(`Producto más caro: ${productomascaro}`)
+
+
+let valorTotal = valorInventario(precios, stock)
+console.log(`Valor de inventario: ${valorTotal.toFixed(2)} €`)
+console.log()
