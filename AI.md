@@ -9,3 +9,5 @@
 | 23/10/2026 | Ejercicio 2 - Descuento y envío | Claude | Le pedí un pseudocódigo del ejercicio 2 sin resolverlo en JavaScript. | Me proporcionó un pseudocódigo para entender las condiciones, descuentos y gastos de envío. | Utilicé el pseudocódigo como guía para desarrollar mi propio código en JavaScript. |
 
 | 23/10/2026 | Ejercicio 2 - usando if para imprimir gratis vez de 0| Claude | le pedi que me explica como es posible cambiar en resultado de envio, cmabiala de 0 a gratis como la tabla de resultados | Me explico que se puede usar un if / else cambiando 0 a gratis justo antes de imprimir resultado | Utilicé el if / else para cambiar este justo antes de imprimir resultado en linea de codigo de envio|
+
+| 23/10/2026 | Ejercicio 2 - usando if para imprimir gratis vez de 0| Claude | le pedi revisar ejercicio, me comento que debo revisar el condicion de if que le parecia un mal entendido de no lerr bine el ejercicio | su explicacion era muy leve solo mas pidio mi atencion sobre las lineas de if y trabajr mejor en > = < | nada solo cambie el = de linea 5 a 7|
