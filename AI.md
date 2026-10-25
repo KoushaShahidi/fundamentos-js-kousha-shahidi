@@ -15,3 +15,7 @@
 | 25/10/2026 | Ejercicio 3 - cantida de Stock| Claude | le pregunte como puedo contar el prodctos con stock 0 | me propusó usar una variable++ para mas y varible-- para restar | use una variable se llama contador++ en for|
 
 | 25/10/2026 | Ejercicio 3 - precio mas caro y nombre de prodcto| Claude | le pregunte por pseudocódigo | me ha hecho el pseudocódigo y diciendo que posicion de precio mas alto y prodcuto i estan igual respecto atjao de profesor en doc | he creado un for con un if respecto el pseudocódigo |
+
+| 25/10/2026 | Ejercicio 4 - imprimir busqueda | Claude | como hacer para que no me hace bucle de imprimir por que tras imprimir denrtro de if me hacia bucel de imprimir todo cada vez | me comento que no estoy posicionado bien el imprecion y tuve que sacar de for | he creado un if/else para igual a -1 y console.log en eso |
+
+| 25/10/2026 | Ejercicio 4 - usar toLowerCase | Claude | pregunte donde se posiciona y si escribo todo en mayuscula me funciona? | me comento que si funciona y me explico posicionar lo en comparador de for | lo puse en comprador en busqueda y no me funcionó y repeti pregunta y diciendo donde coloque y me dijo me hace falta en los dos lao de comparador, tras prueba varias veces y cambio de posicion de toLowerCase en terminal logre hacerlo |
