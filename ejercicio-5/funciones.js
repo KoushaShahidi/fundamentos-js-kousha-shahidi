@@ -93,6 +93,9 @@ console.log(`IVA (${porcentajeIva}%): ${Iva.toFixed(2)} €`)
 console.log(`TOTAL: ${total.toFixed(2)} €`)
 console.log()
 
+
+
+
 //eje-2
 const importe = 49.90
 let descuento = calcularDescuento(importe)
@@ -112,6 +115,9 @@ if (envio === 0) {
 }
 console.log(`Total: ${totalConEnvio.toFixed(2)} €`)
 console.log()
+
+
+
 
 // eje-3
 const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
@@ -136,3 +142,13 @@ console.log(`Producto más caro: ${productomascaro}`)
 let valorTotal = valorInventario(precios, stock)
 console.log(`Valor de inventario: ${valorTotal.toFixed(2)} €`)
 console.log()
+
+
+//eje-4
+let buscado = "Altavoz"
+let posicion = buscarProducto(productos, buscado)
+if (posicion === -1) {
+    console.log(`Posición: ${posicion}. ${buscado} no exsite en catálogo`)
+} else {
+    console.log(`${buscado} esta en la posición ${posicion}. Precio: ${precios[posicion].toFixed(2)} €. Stock: ${stock[posicion]}`)
+}
