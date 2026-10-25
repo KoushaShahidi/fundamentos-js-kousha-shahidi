@@ -19,3 +19,16 @@ for (let i = 0; i < stock.length; i++) {
 }
 console.log()
 console.log(`Productos agotados: ${contador}`)
+
+
+let precioMascaro = 0
+let productoMascaro = ""
+
+for (let i = 0; i < precios.length; i++) {
+    if (precios[i] > precioMascaro) {
+        precioMascaro = precios[i]
+        productoMascaro = productos[i]
+    }
+}
+console.log()
+console.log(`Producto más caro: ${productoMascaro} (${precioMascaro.toFixed(2)} €)`)
