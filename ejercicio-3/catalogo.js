@@ -9,3 +9,13 @@ for (let i = 0; i < productos.length; i++) {
         console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (${stock[i]} uds)`)
     }
 }
+
+let contador = 0
+
+for (let i = 0; i < stock.length; i++) {
+    if (stock[i] === 0) {
+        contador++
+    }
+}
+console.log()
+console.log(`Productos agotados: ${contador}`)
