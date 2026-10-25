@@ -18,7 +18,7 @@ function calcularDescuento(importe) {
     } else {
         descuento = 0
     }
-    return descuento
+    return (importe * (descuento / 100))
 }
 
 function calcularEnvio(importe) {
@@ -88,3 +88,23 @@ console.log(`${cantidad} x ${precio.toFixed(2)} €`)
 console.log(`Subtotal: ${subtotal.toFixed(2)} €`)
 console.log(`IVA (${porcentajeIva}%): ${Iva.toFixed(2)} €`)
 console.log(`TOTAL: ${total.toFixed(2)} €`)
+console.log()
+
+//eje-2
+const importe = 49.90
+let descuento = calcularDescuento(importe)
+
+const subTotal = importe - (descuento)
+let envio = calcularEnvio(subTotal)
+
+const totalConEnvio = subTotal + envio
+
+console.log(`Importe: ${importe.toFixed(2)} €`)
+console.log(`Descuento: ${descuento.toFixed(2)} €`)
+console.log(`Importe con desceunto: ${subTotal.toFixed(2)} €`)
+if (envio === 0) {
+    console.log(`Envio: Gratis`)
+} else {
+    console.log(`Envio: ${envio.toFixed(2)} €`)
+}
+console.log(`Total: ${totalConEnvio.toFixed(2)} €`)
