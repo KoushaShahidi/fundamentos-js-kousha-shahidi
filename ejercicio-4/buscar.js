@@ -9,4 +9,12 @@ for (let i = 0; i < productos.length; i++) {
         posicion = i
     }
 }
-console.log(`${buscado} esta en la posición ${posicion}. Precio: ${precios[posicion].toFixed(2)} €. Stock: ${stock[posicion]}`)
+
+if (posicion === -1) {
+    console.log(`Posición: ${posicion}. ${buscado} no exsite en catálogo`)
+} else {
+    console.log(`${buscado} esta en la posición ${posicion}. Precio: ${precios[posicion].toFixed(2)} €. Stock: ${stock[posicion]}`)
+}
+
+
+
