@@ -111,20 +111,24 @@ for (let i = 0; i < pedidoProductos.length; i++) {
             ticketProductos.push(nombreDelProducto)
             ticketPrecios.push(precios[productoPosicion])
             ticketCantidades.push(cantidadDeStock)
+            stock[productoPosicion] = stock[productoPosicion] - cantidadDeStock
+
         } else {//cantidad suficinete ok servir
             console.log(`OK: ${cantidadDePedido} x ${nombreDelProducto}`)
             ticketProductos.push(nombreDelProducto)
             ticketPrecios.push(precios[productoPosicion])
             ticketCantidades.push(cantidadDePedido)
+            stock[productoPosicion] = stock[productoPosicion] - cantidadDePedido
         }
     }
 }
+
 
 console.log()
 let subtotal = 0
 console.log(`=== TICKET ===`)
 for (let i = 0; i < ticketProductos.length; i++) {
-    console.log(`${ticketCantidades[i]} x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)} €) = ${calcularImporteLinea(ticketPrecios[i], ticketCantidades[i])} €`)
+    console.log(`${ticketCantidades[i]} x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)} €) = ${calcularImporteLinea(ticketPrecios[i], ticketCantidades[i]).toFixed(2)} €`)
     subtotal = subtotal + calcularImporteLinea(ticketPrecios[i], ticketCantidades[i])
 }
 const descuento = calcularDescuento(subtotal)
@@ -144,4 +148,18 @@ if (envio === 0) {
 }
 console.log(`TOTAL: ${total.toFixed(2)} €`)
 
+console.log()
+console.log(`=== STOCK ACTUALIZADO ===`)
+let stockactualizado = []
+let productosAgotados = []
 
+for (let i = 0; i < productos.length; i++) {
+    if (stock[i] === 0) {
+        productosAgotados.push(productos[i])
+    }
+    stockactualizado.push(`${productos[i]}: ${stock[i]} .`)
+}
+
+
+console.log(`${stockactualizado.join(" ")}`)
+console.log(`Agotados: ${productosAgotados.join(", ")}`)
