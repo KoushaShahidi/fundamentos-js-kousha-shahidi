@@ -91,6 +91,10 @@ for (let i = 0; i < productos.length; i++) {
 }
 console.log()
 
+let ticketProductos = []
+let ticketCantidades = []
+let ticketPrecios = []
+
 console.log(`=== PROCESANDO PEDIDO ===`)
 for (let i = 0; i < pedidoProductos.length; i++) {
     let nombreDelProducto = pedidoProductos[i]
@@ -104,8 +108,40 @@ for (let i = 0; i < pedidoProductos.length; i++) {
             console.log(`AVISO: ${nombreDelProducto} está agotado`)
         } else if (cantidadDePedido > cantidadDeStock) { // servir cantidad que existe
             console.log(`AVISO: solo hay ${cantidadDeStock} uds de ${nombreDelProducto}, se sirven ${cantidadDeStock}`)
+            ticketProductos.push(nombreDelProducto)
+            ticketPrecios.push(precios[productoPosicion])
+            ticketCantidades.push(cantidadDeStock)
         } else {//cantidad suficinete ok servir
             console.log(`OK: ${cantidadDePedido} x ${nombreDelProducto}`)
+            ticketProductos.push(nombreDelProducto)
+            ticketPrecios.push(precios[productoPosicion])
+            ticketCantidades.push(cantidadDePedido)
         }
     }
 }
+
+console.log()
+let subtotal = 0
+console.log(`=== TICKET ===`)
+for (let i = 0; i < ticketProductos.length; i++) {
+    console.log(`${ticketCantidades[i]} x ${ticketProductos[i]} (${ticketPrecios[i].toFixed(2)} €) = ${calcularImporteLinea(ticketPrecios[i], ticketCantidades[i])} €`)
+    subtotal = subtotal + calcularImporteLinea(ticketPrecios[i], ticketCantidades[i])
+}
+const descuento = calcularDescuento(subtotal)
+const baseImponible = subtotal - descuento
+const iva = calcularIVA(baseImponible)
+const envio = calcularEnvio(baseImponible)
+const total = baseImponible + iva + envio
+
+console.log(`Subtotal: ${subtotal.toFixed(2)} €`)
+console.log(`Descuento: -${descuento.toFixed(2)} €`)
+console.log(`Base imponible: ${baseImponible.toFixed(2)} €`)
+console.log(`IVA (21%): ${iva.toFixed(2)} €`)
+if (envio === 0) {
+    console.log(`Envio: Gratis`)
+} else {
+    console.log(`Envio: ${envio.toFixed(2)} €`)
+}
+console.log(`TOTAL: ${total.toFixed(2)} €`)
+
+
