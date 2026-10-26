@@ -1,3 +1,77 @@
+function calcularImporteLinea(precio, cantidad) {
+    return precio * cantidad
+}
+
+function calcularIVA(importe) {
+    return importe * 0.21
+}
+
+function calcularDescuento(importe) {
+    let descuento = 0
+
+    if (importe > 100) {
+        descuento = 10
+    } else if (importe > 50 && importe <= 100) {
+        descuento = 5
+    } else {
+        descuento = 0
+    }
+    return (importe * (descuento / 100))
+}
+
+function calcularEnvio(importe) {
+    let envio = 4.95
+    if (importe >= 50) {
+        envio = 0
+    }
+    return envio
+}
+
+function contarAgotados(stock) {
+    let contador = 0
+
+    for (let i = 0; i < stock.length; i++) {
+        if (stock[i] === 0) {
+            contador++
+        }
+    }
+    return contador
+}
+
+function productoMasCaro(productos, precios) {
+    let productoMascaro = ""
+    let precioMascaro = 0
+
+    for (let i = 0; i < precios.length; i++) {
+        if (precios[i] > precioMascaro) {
+            precioMascaro = precios[i]
+            productoMascaro = productos[i]
+        }
+    }
+
+    return productoMascaro
+}
+
+function valorInventario(precios, stock) {
+    let valorTotal = 0
+
+    for (let i = 0; i < precios.length; i++) {
+        valorTotal = precios[i] * stock[i] + valorTotal
+
+    }
+    return valorTotal
+}
+
+function buscarProducto(productos, nombre) {
+    let posicion = -1
+    for (let i = 0; i < productos.length; i++) {
+        if (nombre.toLowerCase() === productos[i].toLowerCase()) {
+            posicion = i
+        }
+    }
+    return posicion
+}
+
 // Catálogo
 const productos = ["Teclado", "Ratón", "Monitor", "Auriculares", "Webcam"];
 const precios = [45.99, 19.90, 189.00, 59.95, 34.50];   // sin IVA
@@ -13,5 +87,25 @@ for (let i = 0; i < productos.length; i++) {
         console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (AGOTADO)`)
     } else {
         console.log(`${productos[i]} - ${precios[i].toFixed(2)} € (${stock[i]} uds)`)
+    }
+}
+console.log()
+
+console.log(`=== PROCESANDO PEDIDO ===`)
+for (let i = 0; i < pedidoProductos.length; i++) {
+    let nombreDelProducto = pedidoProductos[i]
+    let productoPosicion = buscarProducto(productos, nombreDelProducto)
+    if (productoPosicion === -1) { //producto no existe en catalogo
+        console.log(`AVISO: ${nombreDelProducto} no existe en catálogo`)
+    } else { //productos que existen en catalogo
+        let cantidadDePedido = pedidoCantidades[i]
+        let cantidadDeStock = stock[productoPosicion]
+        if (cantidadDeStock === 0) { //productos agodotados
+            console.log(`AVISO: ${nombreDelProducto} está agotado`)
+        } else if (cantidadDePedido > cantidadDeStock) { // servir cantidad que existe
+            console.log(`AVISO: solo hay ${cantidadDeStock} uds de ${nombreDelProducto}, se sirven ${cantidadDeStock}`)
+        } else {//cantidad suficinete ok servir
+            console.log(`OK: ${cantidadDePedido} x ${nombreDelProducto}`)
+        }
     }
 }
