@@ -152,3 +152,21 @@ if (posicion === -1) {
 } else {
     console.log(`${buscado} esta en la posición ${posicion}. Precio: ${precios[posicion].toFixed(2)} €. Stock: ${stock[posicion]}`)
 }
+
+
+const resultadoImporteLinea = calcularImporteLinea(189, 2)
+console.log(resultadoImporteLinea)
+const resultadoIVA = calcularIVA(378)
+console.log(resultadoIVA)
+const resultadoDescuento = calcularDescuento(120)
+console.log(resultadoDescuento)
+const resultadoEnvio = calcularEnvio(49.40)
+console.log(resultadoEnvio)
+const resultadoAgotados = contarAgotados(stock)
+console.log(resultadoAgotados)
+const resultadoMasCaro = productoMasCaro(productos, precios)
+console.log(resultadoMasCaro)
+const resultadoValorInvertido = valorInventario(precios, stock)
+console.log(resultadoValorInvertido)
+const resultadoBuscarProducto = buscarProducto(productos, "altavoz")
+console.log(resultadoBuscarProducto)
